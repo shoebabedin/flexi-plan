@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useLabel from "../../hooks/useLabel";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import Bubble from "../bubble/Bubble";
 
-const FlexPlanItem = ({ item, jsonSelectedBubbleData }) => {
+const FlexPlanItem = ({ item, jsonSelectedBubbleData, jsonEligibilityData }) => {
   const lebelData = useLabel(item.key);
   const [selectBtn, setSelectBtn] = useState(jsonSelectedBubbleData);
 
+ 
   const handleData = (info, title) => {
     setSelectBtn((jsonSelectedBubbleData) => ({
       ...jsonSelectedBubbleData,
       [title]: info
     }));
   };
+console.log(jsonEligibilityData);
 
+  console.log(selectBtn.longevity);
   return (
     <>
       <div className={`flexPlanItem ${lebelData.active}`}>
@@ -30,6 +33,7 @@ const FlexPlanItem = ({ item, jsonSelectedBubbleData }) => {
                   handleData={handleData}
                   selectedData={selectBtn[item.key]}
                   lebelData={lebelData}
+                  jsonEligibilityData={jsonEligibilityData}
                 />
               </li>
             ))}

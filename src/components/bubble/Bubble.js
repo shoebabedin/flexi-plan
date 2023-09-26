@@ -1,6 +1,7 @@
 import React from "react";
 
 const Bubble = ({ name, data, handleData, selectedData, lebelData }) => {
+  
   return (
     <>
       <button
