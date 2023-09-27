@@ -81,9 +81,6 @@
 .flexiPlan .flexPlanItem.info .data ul li button.selected {
   background: #4abbc3;
 }
-.flexiPlan .flexPlanItem .data {
-}
-.flexiPlan .flexPlanItem .data {
-}
-.flexiPlan .flexPlanItem .data {
+.disabled {
+  background-color: red;
 }

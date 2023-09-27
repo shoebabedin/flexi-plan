@@ -3,9 +3,8 @@ import FlexPlanItem from "../components/FlexPlanItem/FlexPlanItem";
 
 const Home = () => {
   const [jsonBubbleData, setJsonBubbleData] = useState([]);
-  const [jsonEligibilityData, setJsonEligibilityData] = useState([]);
   const [jsonSelectedBubbleData, setJsonSelectedBubbleData] = useState([]);
-  const [jsonFilterData, setJsonFilterData] = useState([]);
+  const [jsonEligibilityData, setJsonEligibilityData] = useState({});
 
   useEffect(() => {
     fetch("/data/bubble-map.json")
@@ -21,19 +20,7 @@ const Home = () => {
       });
   }, []);
 
-  useEffect(() => {
-    fetch("/data/eligibility-map.json")
-      .then((response) => response.json()) // Convert response to JSON {voice:[], bubble:[]}
-      .then((data) => {
-        var result = Object.keys(data).map(function (key) {
-          return { key, data: data[key] };
-        });
-        setJsonEligibilityData(result);
-      })
-      .catch((error) => {
-        console.error("Error fetching JSON data:", error);
-      });
-  }, []);
+
 
   useEffect(() => {
     fetch("/data/selected-bubbles.json")
@@ -49,8 +36,21 @@ const Home = () => {
       });
   }, []);
 
-  console.log("jsonBubbleData", jsonBubbleData);
-  console.log("jsonEligibilityData", jsonEligibilityData);
+  useEffect(() => {
+    fetch("/data/eligibility-map.json")
+      .then((response) => response.json())
+      .then((data) => {
+     // var result = Object.keys(data).map(function (key) {
+        //   return { key, data: data[key] };
+        // });
+        setJsonEligibilityData(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching JSON data:", error);
+      });
+  }, []);
+
+
 
   return (
     <>
@@ -62,6 +62,7 @@ const Home = () => {
             key={index}
             item={item}
             jsonSelectedBubbleData={jsonSelectedBubbleData}
+            jsonEligibilityData={jsonEligibilityData}
           />
         ))}
       </div>

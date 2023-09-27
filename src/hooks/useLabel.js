@@ -39,7 +39,7 @@ const useLabel = (key) => {
     return {
       title: "Bioscope",
       subTitle: "",
-      unit: "GB",
+      unit: "MB",
       active: "#c34ab7",
       desc: "Only used to watch Bioscope"
     };
@@ -57,9 +57,9 @@ const useLabel = (key) => {
     return {
       title: "Missed Call Alert",
       subTitle: "",
-      unit: "Validity: 30 days",
+      unit: "",
       active: "#76c779",
-      desc: ""
+      desc: "Validity: 30 days"
     };
   }
 };
