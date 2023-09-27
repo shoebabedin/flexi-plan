@@ -36,6 +36,7 @@ const FlexPlanItem = ({
     }
   }, [dataInfo, selectBtn]);
 
+ 
   const handleData = (info, title) => {
     setSelectBtn((prevSelectedData) => ({
       ...prevSelectedData,
@@ -47,6 +48,7 @@ const FlexPlanItem = ({
       setDataTitle(title);
     }
   };
+console.log(jsonEligibilityData);
 
   console.log(activateData);
 

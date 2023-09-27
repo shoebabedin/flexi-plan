@@ -26,9 +26,6 @@ const Home = () => {
     fetch("/data/selected-bubbles.json")
       .then((response) => response.json()) // Convert response to JSON {voice:[], bubble:[]}
       .then((data) => {
-        // var result = Object.keys(data).map(function (key) {
-        //   return { key, data: data[key] };
-        // });
         setJsonSelectedBubbleData(data);
       })
       .catch((error) => {
